@@ -22,9 +22,10 @@
 <link rel="stylesheet" type="text/css" href="css/icons/icol16.css" media="screen">
 <link rel="stylesheet" type="text/css" href="css/icons/icol32.css" media="screen">
 
+
 <!-- Demo Stylesheet -->
 <link rel="stylesheet" type="text/css" href="css/demo.css" media="screen">
-
+<link rel="stylesheet" type="text/css" href="css/jquery-confirm.css">
 <!-- jQuery-UI Stylesheet -->
 <link rel="stylesheet" type="text/css" href="jui/css/jquery.ui.all.css" media="screen">
 <link rel="stylesheet" type="text/css" href="jui/jquery-ui.custom.css" media="screen">

@@ -5,7 +5,8 @@ function callDB(){
 	$option=$_GET['operation'];
 	//echo('option choosed'.$option);
 	//$option="read";
-	$tableName=$_GET['table'];
+	//$tableName=$_GET['table'];
+	$tableName='category';
 
 	switch($option){
 		case "read":

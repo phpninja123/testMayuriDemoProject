@@ -18,7 +18,7 @@
     <script src="jui/js/jquery-ui-1.9.2.min.js"></script>
     <script src="jui/jquery-ui.custom.min.js"></script>
     <script src="jui/js/jquery.ui.touch-punch.js"></script>
-    <script src="js/ImageInfo.js"></script>
+    
 
     <!-- Plugin Scripts -->
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
@@ -33,8 +33,8 @@
     <script src="plugins/colorpicker/colorpicker-min.js"></script>
     <script src="plugins/validate/jquery.validate-min.js"></script>
     <script src="custom-plugins/wizard/wizard.min.js"></script>
-    <script src="js/jquery.confirm.min.js"></script>
-    <script src="js/jquery.confirm.js"></script>
+    <!--<script src="js/jquery.confirm.min.js"></script>-->
+    <script src="js/jquery-confirm.min.js"></script>
 
 
     <!-- Core Script -->
@@ -46,7 +46,7 @@
 
     <!-- Demo Scripts (remove if not needed) -->
    <script src="js/demo/demo.table.js"></script>
-   <!--<script src="js/yellowPixelCommon.js"></script>-->
+   <script src="js/yellowPixelCommon.js"></script>
    <script src="js/demo/demo.widget.js"></script>
 
 </body>

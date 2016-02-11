@@ -1,11 +1,21 @@
 $(document).ready(function() {
     //alert('in yellow pixel common');
     loadRecords();
+    
+    
+
     $(document).on("click", "#btnDelete", function() {
+        var result = confirm("Are u sure want to delete this category");
+    if(!result){
+     return false;
+    }else{
         var temp = $(this).attr('recid');
-        alert(temp);
+        //alert(temp);
         deleteRecords(temp);
+    }
     });
+    //$.confirm('message');
+    //$("#btnDelete").confirm();
 
     $(document).on("click", "#mws-form-dialog-mdl-btn", function(event) {
         var temp = $(this).attr('recid');
@@ -167,7 +177,7 @@ function updateRecords(getCmp) {
             name: recname
         },
         success: function(data) {
-            alert(data);
+            //alert(data);
             if (data == "true") {
                 //alert("data updated successfully");
                 loadRecords();
@@ -189,10 +199,10 @@ function deleteRecords(getCmp) {
             operation: "delete"
         },
         success: function(data) {
-            alert(data);
+           // alert(data);
             if (data == "true") {
                 //$("#catId").val(getCmp);
-                alert("data delete successfully");
+              //  alert("data delete successfully");
                 loadRecords();
             } else {
                 alert("no data");
