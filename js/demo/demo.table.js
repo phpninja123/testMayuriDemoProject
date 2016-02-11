@@ -13,12 +13,7 @@
 
 
         // Data Tables
-        if( $.fn.dataTable ) {
-            $(".mws-datatable").dataTable();
-            $(".mws-datatable-fn").dataTable({
-                sPaginationType: "full_numbers"
-            });
-        }
+       
 
     });
 

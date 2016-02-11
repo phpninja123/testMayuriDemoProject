@@ -5,13 +5,12 @@ function callDB(){
 	$option=$_GET['operation'];
 	//echo('option choosed'.$option);
 	//$option="read";
-	$tableName='category';
+	$tableName=$_GET['table'];
+
 	switch($option){
 		case "read":
 			$sql="select * from $tableName";
 			echo json_encode(readRecords($tableName,$sql));
-			break;
-		case "write":
 			break;
 		case "update":
 			$name=$_GET['name'];
@@ -24,10 +23,16 @@ function callDB(){
 			//$id=1;
 			$sql="delete from category where ID=$id ";
 			echo deleteRecords($tableName,$sql);
+			break;
 		case "select":
 			$id=$_GET['RecId'];
 			$sql="select * from category where ID=$id";
 			echo json_encode(readRecords($tableName,$sql));
+			break;
+		case "new":
+			$name = $_GET['name'];
+			$sql="insert into category(NAME) values('$name')";
+			echo json_encode(WriteRecords($tableName,$sql));
 			break;
 	}
 }

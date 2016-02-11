@@ -8,38 +8,37 @@ require_once('sidebar.php'); ?>
         
             <!-- Inner Container Start -->
             <div class="container">
-             <!-- Panels Start -->
-                    <div class="mws-panel grid_8">
+      
+                <!-- data table-->
+               
+                <div class="mws-panel grid_8">
                     <div class="mws-panel-header">
-                        <span><i class="icon-table"></i> Category table</span>
+                        <span><i class="icon-table"></i> Category Data Table</span>
                     </div>
-                    <div class="mws-panel-toolbar">
-                        <div class="btn-toolbar">
-                            <div class="btn-group">
-                                <a href="#" class="btn" id="btnAdd"><i class="icol-accept"></i>Add</a>
-                               </div>
-                        </div>
-                    </div>
-
                     <div class="mws-panel-body no-padding">
-                        <table class="mws-table">
+                        <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec'
+                         class="btn  btn-success btn-large" style="float: right;">
+                         <i class="icon-plus-sign"></i>
+                        </button> 
+                        <table class="mws-datatable mws-table" id="dataTableData1">
                             <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Category Name</th>
                                     <th>Created On</th>
                                     <th>Updated On</th>
-                                    <th>Action</th>
+                                    <th>Action</th> 
                                 </tr>
                             </thead>
-                            <tbody id="tdata">
-                               
+                            <tbody id = 'dataTableData' >
                             </tbody>
                         </table>
-                    </div>      
+                    </div>
                 </div>
+
                 <!-- modal start-->
-                <div class="mws-panel grid_4">
+
+                <div class="mws-panel grid_4" style = "display: none;">
                         <div class="mws-panel-content">                           
                             <div id="mws-form-dialog">
                                 <form id="mws-validate" class="mws-form" action="form_elements.html">

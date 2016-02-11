@@ -1,7 +1,13 @@
 <?php
 require_once("DBConnection.php");
-function WriteRecords($tableName){
+function WriteRecords($tableName, $sql){
 	$result=prepareDB($sql);
+	if($result){
+		return "true";
+	}
+	else{
+		return "false";
+	}
 }
 function updateRecords($tableName,$sql){
 	$result=prepareDB($sql);
@@ -37,6 +43,7 @@ function readRecords($tableName,$sql){
 function prepareDB($sql){
 	$conn=getDBConnection();
 	$result=mysqli_query($conn,$sql) or die("error in fetching records");
+	$conn=null;
 	return $result;
 }
 

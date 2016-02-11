@@ -1,4 +1,6 @@
-  <?php require_once('header.php'); 
+<?php 
+$title = 'File Management';
+require_once('header.php'); 
 require_once('sidebar.php'); ?>
 
   <!-- Main Container Start -->
