@@ -4,25 +4,27 @@ require_once("FetchRecords.php");
 function callDB(){
 	$option=$_GET['operation'];
 	//echo('option choosed'.$option);
-	//$option="read";
+	//$option="update";
 	//$tableName=$_GET['table'];
 	$tableName='category';
 
 	switch($option){
 		case "read":
-			$sql="select * from $tableName";
+			$sql="select * from $tableName where DELETED = 0";
 			echo json_encode(readRecords($tableName,$sql));
 			break;
 		case "update":
+			//$date = now();
+			//echo($date);
 			$name=$_GET['name'];
 			$id=$_GET['RecId'];
-			$sql="update category set NAME='$name' where ID=$id";
+			$sql="update category set NAME='$name', UPDATED = now() where ID = $id";
 			echo updateRecords($tableName,$sql);
 			break;
 		case "delete":
 			$id=$_GET['RecId'];
 			//$id=1;
-			$sql="delete from category where ID=$id ";
+			$sql="update category set DELETED = 1 where ID=$id ";
 			echo deleteRecords($tableName,$sql);
 			break;
 		case "select":

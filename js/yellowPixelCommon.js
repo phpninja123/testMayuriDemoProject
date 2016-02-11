@@ -189,7 +189,7 @@ function updateRecords(getCmp) {
             name: recname
         },
         success: function(data) {
-            //alert(data);
+            alert(data);
             if (data == "true") {
                 //alert("data updated successfully");
                 loadRecords();
