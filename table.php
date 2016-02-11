@@ -1,5 +1,6 @@
   <?php
 $title = 'Home Management';
+$page = 'table';
 require_once('header.php'); 
 require_once('sidebar.php'); ?>
 

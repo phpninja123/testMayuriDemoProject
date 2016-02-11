@@ -1,25 +1,26 @@
-<?php 
+<?php
 $title = 'Category Management';
-require_once('header.php'); 
-require_once('sidebar.php'); ?>
-        
-        <!-- Main Container Start -->
+$page = 'dashboard';
+require_once('header.php');
+require_once('sidebar.php');
+?>
+      <!-- Main Container Start -->
         <div id="mws-container" class="clearfix">
-        
-            <!-- Inner Container Start -->
-            <div class="container">
-      
+        <!-- Inner Container Start -->
+            <div class="container">     
+                  
                 <!-- data table-->
-               
                 <div class="mws-panel grid_8">
+                     
                     <div class="mws-panel-header">
-                        <span><i class="icon-table"></i> Category Data Table</span>
+                        <span><i class="icon-table"></i> Category Data Table
+                           <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec'
+                         class="btn btn-success" style="float: right;">
+                         <i class="icon-plus-sign"></i>Add New Category
+                        </button>
+                        </span>
                     </div>
                     <div class="mws-panel-body no-padding">
-                        <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec'
-                         class="btn  btn-success btn-large" style="float: right;">
-                         <i class="icon-plus-sign"></i>
-                        </button> 
                         <table class="mws-datatable mws-table" id="dataTableData1">
                             <thead>
                                 <tr>
@@ -35,9 +36,7 @@ require_once('sidebar.php'); ?>
                         </table>
                     </div>
                 </div>
-
                 <!-- modal start-->
-
                 <div class="mws-panel grid_4" style = "display: none;">
                         <div class="mws-panel-content">                           
                             <div id="mws-form-dialog">
@@ -63,4 +62,6 @@ require_once('sidebar.php'); ?>
             </div>
             <!-- Inner Container End -->
                      
-<?php require_once('footer.php');?>
+<?php
+require_once('footer.php');
+?>

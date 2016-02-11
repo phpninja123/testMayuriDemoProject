@@ -1,5 +1,9 @@
 $(document).ready(function() {
     //alert('in yellow pixel common');
+    /*$.ajax({
+
+    });*/
+
     loadRecords();
     
     
@@ -18,9 +22,10 @@ $(document).ready(function() {
     //$("#btnDelete").confirm();
 
     $(document).on("click", "#mws-form-dialog-mdl-btn", function(event) {
+       validator = $( "form#mws-validate" ).validate();
         var temp = $(this).attr('recid');
         if (temp == 'newRec') {
-            $("#catId").val("");
+           // $("#catId").val("");
             $("#mws-form-dialog").dialog("option", {
                 modal: true,
                 title : "Add Category",
@@ -33,20 +38,22 @@ $(document).ready(function() {
                         if(isValid){
                           addNewRecord();
                         }
-                       // else{  event.preventDefault();}
                     }
-                    //$(this).find('form#mws-validate').submit();
+                    
                 }, {
                     text: "Close Dialog",
                     click: function() {
+                        alert('close');
                         $(this).dialog("close");
-                        $("#catId").val("");
+                        $("#mws-validate")[0].reset();
+                        $("#mws-validate-error").hide();
+                        validator.resetForm();
+                        //$("#mws-validate-error").removeClass('error');
                     }
                 }]
             }).dialog("open");
         } else {
             //alert('in modal');
-
             $("#mws-form-dialog").dialog("option", {
                 modal: true,
                 title: "Edit Category",
@@ -54,17 +61,22 @@ $(document).ready(function() {
                     text: "Close Dialog",
                     click: function() {
                         $(this).dialog("close");
-                        $("#catId").val("");
+                        //$("#catId").val("");
+                         $("#mws-validate")[0].reset();
+                        validator.resetForm();  
                     }
                 }, {
                     text: "Update",
                     id: "btnUpdate",
-                    click : function(){updateRecords(temp);}
+                    click : function(){
+                         var validator = $( "form#mws-validate" ).validate();
+                        var isValid = $(this).find('form#mws-validate').valid();
+                        if(isValid)
+                        updateRecords(temp);
+                    }
                 }]
             }).dialog("open");
 
-            //var getCmp = $("#catId").val();
-            alert(temp);
             $.ajax({
                 url: "php/DAO.php",
                 method: "get",
@@ -73,7 +85,7 @@ $(document).ready(function() {
                     operation: "select"
                 },
                 success: function(data) {
-                    alert(data);
+                    //Salert(data);
                     if (data) {
                         //alert($(this).attr('newRec'));
                         var displayData = JSON.parse(data);
@@ -135,7 +147,7 @@ function addNewRecord() {
     //enableSubmit();
     var temp = $("#catId").val();
     $("#catId").val("");
-    alert(temp);
+   // alert(temp);
     $.ajax({
         url: "php/DAO.php",
         method: "get",
@@ -145,7 +157,7 @@ function addNewRecord() {
         },
         datatype: JSON,
         success: function(data) {
-            alert(data);
+            //alert(data);
             loadRecords();
             // $("#catId").val("");
         }

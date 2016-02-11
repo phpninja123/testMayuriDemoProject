@@ -1,5 +1,6 @@
 <?php 
 $title = 'File Management';
+$page = 'file';
 require_once('header.php'); 
 require_once('sidebar.php'); ?>
 
