@@ -57,22 +57,25 @@ $(document).ready(function() {
             $("#mws-form-dialog").dialog("option", {
                 modal: true,
                 title: "Edit Category",
-                buttons: [{
+                buttons: [
+                {
+                    text: "Update",
+                    id: "btnUpdate",
+                    click : function(){
+                        $(this).addClass('btn btn-success');
+                        var validator = $( "form#mws-validate" ).validate();
+                        var isValid = $(this).find('form#mws-validate').valid();
+                        if(isValid)
+                        updateRecords(temp);
+                    }
+                },
+                {
                     text: "Close Dialog",
                     click: function() {
                         $(this).dialog("close");
                         //$("#catId").val("");
                          $("#mws-validate")[0].reset();
                         validator.resetForm();  
-                    }
-                }, {
-                    text: "Update",
-                    id: "btnUpdate",
-                    click : function(){
-                         var validator = $( "form#mws-validate" ).validate();
-                        var isValid = $(this).find('form#mws-validate').valid();
-                        if(isValid)
-                        updateRecords(temp);
                     }
                 }]
             }).dialog("open");
@@ -189,12 +192,12 @@ function updateRecords(getCmp) {
             name: recname
         },
         success: function(data) {
-            alert(data);
+            //alert(data);
             if (data == "true") {
-                //alert("data updated successfully");
+                alert("data updated successfully");
                 loadRecords();
             } else {
-                alert("no data");
+                alert("No data found for update");
             }
         }
     });
@@ -214,10 +217,10 @@ function deleteRecords(getCmp) {
            // alert(data);
             if (data == "true") {
                 //$("#catId").val(getCmp);
-              //  alert("data delete successfully");
+                alert("Data delete successfully");
                 loadRecords();
             } else {
-                alert("no data");
+                alert("Error in data deletion");
                 loadRecords();
             }
         }
