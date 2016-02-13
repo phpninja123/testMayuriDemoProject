@@ -1,12 +1,7 @@
 $(document).ready(function() {
-    //alert('in yellow pixel common');
-    /*$.ajax({
-
-    });*/
-
-    loadRecords();
-    
-    
+    var targetresource = $('tbody').attr('targetResource');
+   // alert(targetresource);
+    loadRecords(targetresource);
 
     $(document).on("click", "#btnDelete", function() {
         var result = confirm("Are u sure want to delete this category");
@@ -15,12 +10,10 @@ $(document).ready(function() {
     }else{
         var temp = $(this).attr('recid');
         //alert(temp);
-        deleteRecords(temp);
+        deleteRecords(temp,targetresource);
     }
     });
-    //$.confirm('message');
-    //$("#btnDelete").confirm();
-
+    
     $(document).on("click", "#mws-form-dialog-mdl-btn", function(event) {
        validator = $( "form#mws-validate" ).validate();
         var temp = $(this).attr('recid');
@@ -36,14 +29,14 @@ $(document).ready(function() {
                        // $(this).find('form#mws-validate');
                         var isValid = $(this).find('form#mws-validate').valid();
                         if(isValid){
-                          addNewRecord();
+                          addNewRecord(targetresource);
                         }
                     }
                     
                 }, {
                     text: "Close Dialog",
                     click: function() {
-                        alert('close');
+                       // alert('close');
                         $(this).dialog("close");
                         $("#mws-validate")[0].reset();
                         $("#mws-validate-error").hide();
@@ -62,11 +55,11 @@ $(document).ready(function() {
                     text: "Update",
                     id: "btnUpdate",
                     click : function(){
-                        $(this).addClass('btn btn-success');
+                        //$(this).addClass('btn btn-success');
                         var validator = $( "form#mws-validate" ).validate();
                         var isValid = $(this).find('form#mws-validate').valid();
                         if(isValid)
-                        updateRecords(temp);
+                        updateRecords(temp,targetresource);
                     }
                 },
                 {
@@ -79,13 +72,14 @@ $(document).ready(function() {
                     }
                 }]
             }).dialog("open");
-
+            //code for select
             $.ajax({
                 url: "php/DAO.php",
                 method: "get",
                 data: {
                     RecId: temp,
-                    operation: "select"
+                    operation: "select",
+                    target : targetresource
                 },
                 success: function(data) {
                     //Salert(data);
@@ -104,21 +98,16 @@ $(document).ready(function() {
         }
 
     });
-  /*  $(document).on("click", "#btnUpdate", function() {
-        var temp = $("#catId").val();
-        alert('in update');
-        updateRecords(temp);
-    });*/
-
 });
 
-function loadRecords() {
+function loadRecords(targetresource) {
     //alert('loading records');
     $.ajax({
         url: "php/DAO.php",
         method: "get",
         data: {
-            operation: "read"
+            operation: "read",
+            target : targetresource
         },
         datatype: JSON,
         success: function(data) {
@@ -127,11 +116,24 @@ function loadRecords() {
                 var displayData = JSON.parse(data);
                 console.log(displayData);
                 var displayHtml = "";
-                $.each(displayData, function(k, v) {
+                
+                switch(targetresource){
+                    case '1': 
+                    $.each(displayData, function(k, v) {
                     //console.log(k.Name);
                     displayHtml += "<tr><td>" + v.ID + "</td><td>" + v.NAME + "</td><td>" + v.CREATED + "</td><td>" + v.UPDATED + "</td><td><button id='mws-form-dialog-mdl-btn' recid='" + v.ID + "' class='btn btn-success'><i class='icon-pencil'></i></button>&nbsp;<button  class='btn btn-danger' id='btnDelete' recid='" + v.ID + "'><i class='icon-remove-sign'></i></button></td></tr>";
-                });
-                $("#dataTableData").html(displayHtml);
+                    });
+                    $("#dataTableData").html(displayHtml);
+                    break;
+                    case '2':
+                     $.each(displayData, function(k, v) {
+                    //console.log(k.Name);
+                    displayHtml += "<tr><td>" + v.ID + "</td><td>" + v.IMAGE + "</td><td>"+v.IMAGE_CATEGORY+"</td><td>"+v.CAPTION+"</td><td>" + v.CREATED + "</td><td>" + v.UPDATED + "</td><td><button id='mws-form-dialog-mdl-btn' recid='" + v.ID + "' class='btn btn-success'><i class='icon-pencil'></i></button>&nbsp;<button  class='btn btn-danger' id='btnDelete' recid='" + v.ID + "'><i class='icon-remove-sign'></i></button></td></tr>";
+                    });
+                    $("#imageDataTable").html(displayHtml);
+                    break;
+                }
+                //$('tbody').attr('targetresource').append(displayHtml);
                 if ($.fn.dataTable) {
                     $(".mws-datatable").dataTable();
                     $(".mws-datatable-fn").dataTable({
@@ -145,9 +147,10 @@ function loadRecords() {
     });
 }
 
-function addNewRecord() {
+function addNewRecord(targetresource) {
     //alert('clicked new');
     //enableSubmit();
+    alert(targetresource);
     var temp = $("#catId").val();
     $("#catId").val("");
    // alert(temp);
@@ -156,29 +159,19 @@ function addNewRecord() {
         method: "get",
         data: {
             operation: "new",
-            name: temp
+            name: temp,
+            target : targetresource
         },
         datatype: JSON,
         success: function(data) {
             //alert(data);
-            loadRecords();
+            loadRecords(targetresource);
             // $("#catId").val("");
         }
     });
 }
 
-function enableSubmit() {
-    $("#btnUpdate").hide();
-    // $("#catId").val("");
-    $("#btnSubmit").show();
-}
-
-function enableUpdate() {
-    $("#btnUpdate").show();
-    $("#btnSubmit").hide();
-}
-
-function updateRecords(getCmp) {
+function updateRecords(getCmp,targetresource) {
    // alert('update');
    var recname = $("#catId").val();
    if(recname != ""){
@@ -189,13 +182,14 @@ function updateRecords(getCmp) {
         data: {
             RecId: getCmp,
             operation: "update",
-            name: recname
+            name: recname,
+            target : targetresource
         },
         success: function(data) {
             //alert(data);
             if (data == "true") {
                 alert("data updated successfully");
-                loadRecords();
+                loadRecords(targetresource);
             } else {
                 alert("No data found for update");
             }
@@ -205,90 +199,26 @@ function updateRecords(getCmp) {
     //loadRecords();
 }
 
-function deleteRecords(getCmp) {
+function deleteRecords(getCmp,targetresource) {
     $.ajax({
         url: "php/DAO.php",
         method: "get",
         data: {
             RecId: getCmp,
-            operation: "delete"
+            operation: "delete",
+            target : targetresource
         },
         success: function(data) {
            // alert(data);
+           console.log(data);
             if (data == "true") {
                 //$("#catId").val(getCmp);
                 alert("Data delete successfully");
-                loadRecords();
+                loadRecords(targetresource);
             } else {
                 alert("Error in data deletion");
-                loadRecords();
+                loadRecords(targetresource);
             }
         }
     });
 }
-
-/*
-var getCmp = $(this).attr("recid");
-        if(getCmp=='newRec'){
-           $("#btnDelete").hide();
-           $("#btnUpdate").hide();
-        }
-          $("#mws-form-dialog").dialog("option", {
-            modal: true,
-            buttons: [
-            {
-                    text: "Submit",
-                    id: "btnSubmit",
-                    click: function () {
-                        $(this).find('form#mws-validate').submit();
-                    }
-            },
-            {
-                text: "Close Dialog",
-                click: function() {
-                    $(this).dialog("close");
-                     $("#catId").val("");
-                }
-            }, {
-                text: "Update",
-                id: "btnUpdate",
-                click:function() {
-                    alert("hi..");
-                     updateRecords(getCmp);
-                    }
-            }, {
-                text: "delete",
-                id: "btnDelete",
-                click: function() {
-                    $(document).on("click", $(this), function(event) {
-                        //alert('delete');
-                        deleteRecords(getCmp);
-                    });
-                }
-            }]
-        }).dialog("open");
-      
-        $.ajax({
-            url: "php/DAO.php",
-            method: "get",
-            data: {
-                RecId: getCmp,
-                operation: "select"
-            },
-            success: function(data) {
-                //alert(data);
-                if (data) {
-                    //alert($(this).attr('newRec'));
-                        var displayData = JSON.parse(data);
-                        //console.log(displayData[0].NAME);
-                        $("#catId").val(displayData[0].NAME);
-                        $("#btnSubmit").hide();
-                } else {
-                    alert("no data");
-                }
-            }
-        });
-
-        event.preventDefault();
-        //alert('modal clicked');
-*/

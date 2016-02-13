@@ -6,8 +6,32 @@ function callDB(){
 	//echo('option choosed'.$option);
 	//$option="update";
 	//$tableName=$_GET['table'];
-	$tableName='category';
-
+	//$tableName='category';
+	$table=$_GET['target'];
+	$newSql;
+	$updateSql;
+	$name;
+	$id;
+	switch($table){
+		case 1: $tableName = 'category';
+				if($option=='update' || $option=='new'){
+				$name = $_GET['name'];
+				$newSql="insert into $tableName(NAME) values('$name')";
+				}
+				if($option=='update'){
+				$id = $_GET['RecId'];
+				$updateSql="update $tableName set NAME='$name', UPDATED = now() where ID = $id";
+				}
+				
+				
+		break;
+		case 2: $tableName = 'project_info';
+				//INSERT INTO `project_info`(`IMAGE`, `IMAGE_CATEGORY`, `CAPTION`) VALUES ('test','2','test image')
+		break;
+		case 3: $tableName = 'footer_info';
+		break;
+	}
+	//echo($table);
 	switch($option){
 		case "read":
 			$sql="select * from $tableName where DELETED = 0";
@@ -16,26 +40,21 @@ function callDB(){
 		case "update":
 			//$date = now();
 			//echo($date);
-			$name=$_GET['name'];
-			$id=$_GET['RecId'];
-			$sql="update category set NAME='$name', UPDATED = now() where ID = $id";
-			echo updateRecords($tableName,$sql);
+			echo updateRecords($tableName,$updateSql);
 			break;
 		case "delete":
 			$id=$_GET['RecId'];
 			//$id=1;
-			$sql="update category set DELETED = 1 where ID=$id ";
+			$sql="update $tableName set DELETED = 1 where ID=$id ";
 			echo deleteRecords($tableName,$sql);
 			break;
 		case "select":
 			$id=$_GET['RecId'];
-			$sql="select * from category where ID=$id";
-			echo json_encode(readRecords($tableName,$sql));
+			$sql="select * from $tableName where ID=$id";
+			echo json_encode(readRecords($tableName,$Sql));
 			break;
 		case "new":
-			$name = $_GET['name'];
-			$sql="insert into category(NAME) values('$name')";
-			echo json_encode(WriteRecords($tableName,$sql));
+			echo json_encode(WriteRecords($tableName,$newSql));
 			break;
 	}
 }

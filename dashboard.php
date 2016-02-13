@@ -1,6 +1,7 @@
 <?php
 $title = 'Category Management';
 $page = 'dashboard';
+$target = 1;
 require_once('header.php');
 require_once('sidebar.php');
 ?>
@@ -31,33 +32,12 @@ require_once('sidebar.php');
                                     <th>Action</th> 
                                 </tr>
                             </thead>
-                            <tbody id = 'dataTableData' >
+                            <tbody id = 'dataTableData'  targetResource='1'>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <!-- modal start-->
-                <div class="mws-panel grid_4" style = "display: none;">
-                        <div class="mws-panel-content">                           
-                            <div id="mws-form-dialog">
-                                <form id="mws-validate" class="mws-form" action="form_elements.html">
-                                    <div id="mws-validate-error" class="mws-form-message error" style="display:none;"></div>
-                                    <div class="mws-form-inline">
-                                        <div class="mws-form-row">
-                                            <label class="mws-form-label">Category Name</label>
-                                            <div class="mws-form-item">
-                                                <input type="text" name="reqField" class="required" id="catId">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                 
-                </div>
-                
-            <!-- modal end-->
-               
+               <?php require_once('php/Modal.php'); ?>              
                 
             </div>
             <!-- Inner Container End -->
