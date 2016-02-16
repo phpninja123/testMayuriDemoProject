@@ -1,15 +1,15 @@
 <?php
-require_once("DBConnection.php");
-function WriteRecords($tableName, $sql){
+@require_once("DBConnection.php");
+function WriteRecords($sql){
 	$result=prepareDB($sql);
 	if($result){
-		return "true";
+		return 1;
 	}
 	else{
-		return "false";
+		return 0;
 	}
 }
-function updateRecords($tableName,$sql){
+function updateRecords($sql){
 	$result=prepareDB($sql);
 	if($result){
 		return "true";
@@ -19,7 +19,7 @@ function updateRecords($tableName,$sql){
 	}
 }
 
-function deleteRecords($tableName,$sql){
+function deleteRecords($sql){
 	$result=prepareDB($sql);
 	if($result){
 		return "true";
@@ -30,7 +30,7 @@ function deleteRecords($tableName,$sql){
 }
 
 //reading all database records
-function readRecords($tableName,$sql){
+function readRecords($sql){
 	$result=prepareDB($sql);
 	$returnResult=array();
 	while($temp=mysqli_fetch_assoc($result)){
@@ -40,11 +40,34 @@ function readRecords($tableName,$sql){
 	return $returnResult;
 	//print_r($returnResult);
 }
+function getCatId($sql){
+	$result=prepareDB($sql);
+	if($row = mysqli_fetch_array($result)){
+		return $row['ID'];
+	}
+	else{
+		return 0;
+	}
+}
+function getDD(){
+	//$conn=getDBConnection();
+	//$sql="select IMAGE_CATEGORY from project_info where IMAGE_CATEGORY in(select ID from category)";
+	$sql="select NAME from category where DELETED= 0";
+	$result=prepareDB($sql);
+	while ($row = mysqli_fetch_array($result)){
+		echo "<option value=\"owner1\">" . $row['NAME'] . "</option>";
+	}
+}
 function prepareDB($sql){
 	$conn=getDBConnection();
 	$result=mysqli_query($conn,$sql) or die("error in fetching records");
+	//printf(mysqli_error,$conn);
+	/*
+	if (!mysqli_query($conn, $sql)) {
+    printf("Errormessage: %s\n", mysqli_error($conn));
+	}*/
 	$conn=null;
 	return $result;
 }
-
+//getDD();
 ?>

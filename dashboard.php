@@ -37,7 +37,27 @@ require_once('sidebar.php');
                         </table>
                     </div>
                 </div>
-               <?php require_once('php/Modal.php'); ?>              
+                <!-- modal start-->
+                <div class="mws-panel grid_4" style = "display: none;">
+                        <div class="mws-panel-content">                           
+                            <div id="mws-form-dialog">
+                                <form id="mws-validate" class="mws-form" action="form_elements.html">
+                                    <div id="mws-validate-error" class="mws-form-message error" style="display:none;"></div>
+                                    <div class="mws-form-inline">
+                                        <div class="mws-form-row">
+                                            <label class="mws-form-label" id='lblCat'>Category Name</label>
+                                            <div class="mws-form-item">
+                                                <input type="text" name="reqField" class="required" id="catId">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+                
+            <!-- modal end-->
                 
             </div>
             <!-- Inner Container End -->

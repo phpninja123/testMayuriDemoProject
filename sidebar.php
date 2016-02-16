@@ -19,11 +19,13 @@
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
-                    <li <?php if($page == 'table'){ ?> class="active"<?php }?> ><a href="table.php"><i class="icon-home"></i>Home</a></li>
+                    <li <?php if($page == 'table'){ ?> class="active"<?php }?> >
+                        <a href="table.php"><i class="icon-home"></i>Home</a>
+                    </li>
                     <li  <?php  if($page == 'dashboard'){ ?> class="active"<?php }?> ><a href="dashboard.php"><i class="icon-table" ></i>Category</a></li>
                     <!--<li><a href="charts.html"><i class="icon-graph"></i> Charts</a></li>
                     <li><a href="calendar.html"><i class="icon-calendar"></i> Calendar</a></li>-->
-                   <!-- <li <?php  if($page == 'file'){ ?> class="active"<?php }?>><a href="files.php"><i class="icon-folder-closed"></i> File Manager</a></li>
+                   <!-- <li <?php  /*if($page == 'file'){ */?> class="active"<?php /*}*/?>><a href="files.php"><i class="icon-folder-closed"></i> File Manager</a></li>
                    
                     <li id="4">
                         <a href="#"><i class="icon-list"></i> Forms</a>
