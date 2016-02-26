@@ -23,6 +23,8 @@
                         <a href="table.php"><i class="icon-home"></i>Home</a>
                     </li>
                     <li  <?php  if($page == 'dashboard'){ ?> class="active"<?php }?> ><a href="dashboard.php"><i class="icon-table" ></i>Category</a></li>
+                    <li  <?php  if($page == 'slider'){ ?> class="active"<?php }?> ><a href="Slider.php"><i class="icon-table" ></i>Slider</a></li>
+                    <li  <?php  if($page == 'footer'){ ?> class="active"<?php }?> ><a href="FooterInfo.php"><i class="icon-table" ></i>Footer Info</a></li>
                     <!--<li><a href="charts.html"><i class="icon-graph"></i> Charts</a></li>
                     <li><a href="calendar.html"><i class="icon-calendar"></i> Calendar</a></li>-->
                    <!-- <li <?php  /*if($page == 'file'){ */?> class="active"<?php /*}*/?>><a href="files.php"><i class="icon-folder-closed"></i> File Manager</a></li>

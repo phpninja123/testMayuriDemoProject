@@ -79,7 +79,7 @@
 		$(document).on('touchstart.dropdown.data-api', '.dropdown-menu', function (e) { e.stopPropagation() });
 		
 		/* File Input Styling */
-		$.fn.fileInput && $("input[type='file']").fileInput();
+		//$.fn.fileInput && $("input[type='file']").fileInput();
 
 		// Placeholders
 		$.fn.placeholder && $('[placeholder]').placeholder();

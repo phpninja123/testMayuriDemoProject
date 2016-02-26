@@ -16,7 +16,7 @@ require_once('sidebar.php'); ?>
                         <span><i class="icon-table"></i> Image Data Table
                            <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec'
                          class="btn btn-success" style="float: right;">
-                         <i class="icon-plus-sign"></i>Add New Category
+                         <i class="icon-plus-sign"></i>Add New Image
                         </button>
                         </span>
                     </div>

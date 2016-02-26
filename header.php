@@ -12,6 +12,9 @@
 <!-- Plugin Stylesheets first to ease overrides -->
 <link rel="stylesheet" type="text/css" href="plugins/colorpicker/colorpicker.css" media="screen">
 <link rel="stylesheet" type="text/css" href="custom-plugins/wizard/wizard.css" media="screen">
+<link rel="stylesheet" href="plugins/plupload/jquery.plupload.queue.css" media="screen">
+<link rel="stylesheet" href="plugins/elfinder/css/elfinder.css"media="screen" >
+
 
 <!-- Required Stylesheets -->
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">

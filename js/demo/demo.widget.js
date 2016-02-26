@@ -171,6 +171,7 @@
                     }
                 }]
             });
+            
             $("#mws-form-dialog").dialog({
                 autoOpen: false,
                 title: "jQuery-UI Modal Form",

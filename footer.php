@@ -12,6 +12,7 @@
     <script src="js/libs/jquery-1.8.3.min.js"></script>
     <script src="js/libs/jquery.mousewheel.min.js"></script>
     <script src="js/libs/jquery.placeholder.min.js"></script>
+    <script src="custom-plugins/fileinput.js"></script>
    <!-- <script src="custom-plugins/fileinput.js"></script>-->
     
     <!-- jQuery-UI Dependent Scripts -->
@@ -48,6 +49,7 @@
    <script src="js/demo/demo.table.js"></script>
    <script src="js/yellowPixelCommon.js"></script>
    <script src="js/demo/demo.widget.js"></script>
+   <script src="js/demo/demo.files.js"></script>
 
 </body>
 </html>

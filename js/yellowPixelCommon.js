@@ -1,18 +1,26 @@
 $(document).ready(function() {
-    //alert('targetresource');
     pageLoad();
 
 });
 function pageLoad(){
-     //modal working
-    //enable disable modal components
-     //get identifier for table
+    //get identifier for table
     var targetresource = $('tbody').attr('targetResource');
     //alert('loading records'+targetresource);
     loadRecords(targetresource);
     //enableModal(targetresource);
+    /*
+    $("#getImage").submit(function(){
+        var isValid = $('#getImage').valid();
+        if (isValid) {
+          // addNewRecord(targetresource);
+          return true;
+        }
+        else{
+            return false;
+        }
+    });*/
     $(document).on("click", "#mws-form-dialog-mdl-btn", function(event) {
-        validator = $("form#mws-validate").validate();
+        validator = $("#getImage").validate();
         var temp = $(this).attr('recid');
         if (temp == 'newRec') {
             // $("#catId").val("");
@@ -21,9 +29,11 @@ function pageLoad(){
                 title: "Add Category",
                 buttons: [{
                     text: "Submit",
-                    id: "btnSubmit",
+                    //id: "btnSubmit",
                     click: function() {
-                        // $(this).find('form#mws-validate');
+                        //$("#getImage").submit();
+                         $(this).find('form#mws-validate');
+                        $(this).find('form#mws-validate').submit();
                         var isValid = $(this).find('form#mws-validate').valid();
                         if (isValid) {
                             addNewRecord(targetresource);
@@ -33,17 +43,14 @@ function pageLoad(){
                 }, {
                     text: "Close Dialog",
                     click: function() {
-                        // alert('close');
                         $(this).dialog("close");
                         $("#mws-validate")[0].reset();
                         $("#mws-validate-error").hide();
                         validator.resetForm();
-                        //$("#mws-validate-error").removeClass('error');
                     }
                 }]
             }).dialog("open");
         } else {
-            //alert('in modal');
             $("#mws-form-dialog").dialog("option", {
                 modal: true,
                 title: "Edit Category",
@@ -51,7 +58,6 @@ function pageLoad(){
                     text: "Update",
                     id: "btnUpdate",
                     click: function() {
-                        //$(this).addClass('btn btn-success');
                         var validator = $("form#mws-validate").validate();
                         var isValid = $(this).find('form#mws-validate').valid();
                         if (isValid)
@@ -61,7 +67,6 @@ function pageLoad(){
                     text: "Close Dialog",
                     click: function() {
                         $(this).dialog("close");
-                        //$("#catId").val("");
                         $("#mws-validate")[0].reset();
                         validator.resetForm();
                     }
@@ -72,7 +77,6 @@ function pageLoad(){
         }
 
     });
-    //end of modal working
 
 //delete records
     $(document).on("click", "#btnDelete", function() {
@@ -81,7 +85,6 @@ function pageLoad(){
             return false;
         } else {
             var temp = $(this).attr('recid');
-            //alert(temp);
             deleteRecords(temp, targetresource);
         }
     });
@@ -90,7 +93,6 @@ function pageLoad(){
 
 
 function loadRecords(targetresource) {
-    //alert('loading records'+targetresource);
     $.ajax({
         url: "php/DAO.php",
         method: "get",
@@ -100,7 +102,7 @@ function loadRecords(targetresource) {
         },
         datatype: JSON,
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             if (data) {
                 var displayData = JSON.parse(data);
                 console.log(displayData);
@@ -121,6 +123,21 @@ function loadRecords(targetresource) {
                         });
                         $("#imageDataTable").html(displayHtml);
                         break;
+                    case '3':
+                        $.each(displayData, function(k, v) {
+                            //console.log(k.Name);
+                            displayHtml += "<tr><td>" + v.ID + "</td><td>" + v.ABOUT + "</td><td>" + v.CREATED + "</td><td>" + v.UPDATED + "</td><td><button id='mws-form-dialog-mdl-btn' recid='" + v.ID + "' class='btn btn-success'><i class='icon-pencil'></i></button>&nbsp;<button  class='btn btn-danger' id='btnDelete' recid='" + v.ID + "'><i class='icon-remove-sign'></i></button></td></tr>";
+                        });
+                        $("#footerDataTable").html(displayHtml);
+                    break;
+                    case '4':
+                        $.each(displayData, function(k, v) {
+                            //console.log(k.Name);
+                            displayHtml += "<tr><td>" + v.ID + "</td><td>" + v.IMAGE + "</td><td>" + v.IMAGE_PATH + "</td><td>" + v.HEAD_CAPTION + "</td><td>" + v.SUB_CAPTION + "</td><td>" + v.CREATED + "</td><td>" + v.UPDATED + "</td><td><button id='mws-form-dialog-mdl-btn' recid='" + v.ID + "' class='btn btn-success'><i class='icon-pencil'></i></button>&nbsp;<button  class='btn btn-danger' id='btnDelete' recid='" + v.ID + "'><i class='icon-remove-sign'></i></button></td></tr>";
+                        });
+                        $("#sliderDataTable").html(displayHtml);
+                    break;
+
                 }
                 //$('tbody').attr('targetresource').append(displayHtml);
                 if ($.fn.dataTable) {
@@ -160,6 +177,14 @@ function populateModal(temp, targetresource){
                                 $('#txtImgCat').val(displayData[0].IMAGE_CATEGORY);
                                 $('#txtImgCaption').val(displayData[0].CAPTION);
                                 break;
+                            case '3':
+                                $('#txtAbout').val(displayData[0].ABOUT);
+                                break;                               
+                            case '4':
+                                $('#txtImgName').val(displayData[0].IMAGE);
+                                $('#txtHeadCaption').val(displayData[0].HEAD_CAPTION);
+                                $('#txtSubCaption').val(displayData[0].SUB_CAPTION);
+                                break;
                         }
                     } else {
                         alert("no data");
@@ -170,9 +195,6 @@ function populateModal(temp, targetresource){
 
 
 function addNewRecord(targetresource) {
-    //alert('clicked new');
-    //enableSubmit();
-    alert(targetresource);
     //passing value for new
     var temp = [];
     switch(targetresource){
@@ -183,13 +205,20 @@ function addNewRecord(targetresource) {
             temp[0] =  $('#txtImgName').val();
             temp[1] =  $('#txtImgCat option:selected').text();
             temp[2] = $('#txtImgCaption').val();
-            alert(temp[1]);
+            //alert(temp[1]);
+        break;
+        case '3':
+        break;
+         case '4' :
+            temp[0] = $('#txtImgName').val();
+            temp[1] = $('#txtHeadCaption').val();
+            temp[2] = $('#txtSubCaption').val();
+            //alert(temp[0]+ ' '+temp[1]+' '+temp[1]);
         break;
     }
+
     
-    //$("#catId").val("");
-    // alert(temp);
-    $.ajax({
+     $.ajax({
         url: "php/DAO.php",
         method: "get",
         data: {
@@ -199,23 +228,20 @@ function addNewRecord(targetresource) {
         },
         datatype: JSON,
         success: function(data) {
-           // alert(data);
             console.log(data);
-            if(data == "1"){
+            if(data.indexOf("1")> -1){
                 alert('New record created successfully');
                 loadRecords(targetresource);    
             }
             else if(data.indexOf('duplicate')>-1){
                 alert('Category value already present, please enter different value');
             }
-            
-            // $("#catId").val("");
         }
     });
 }
 
 function updateRecords(getCmp, targetresource) {
-    // alert('update');
+    //alert('update'+getCmp);
     //var recname = $("#catId").val();
 
     var temp = [];
@@ -227,8 +253,17 @@ function updateRecords(getCmp, targetresource) {
             temp[0] =  $('#txtImgName').val();
             temp[1] =  $('#txtImgCat option:selected').text();
             temp[2] = $('#txtImgCaption').val();
-            alert(temp[1]);
+            //alert(temp[1]);
         break;
+        case '3':
+             temp[0] = $('#txtAbout').val();
+        break;
+        case '4':
+             temp[0] = $('#txtImgName').val();
+             temp[1] = $('#txtHeadCaption').val();
+             temp[2] = $('#txtSubCaption').val();
+        break;
+
     }
     //if (recname != "") {
         $.ajax({
@@ -243,7 +278,7 @@ function updateRecords(getCmp, targetresource) {
             },
             success: function(data) {
                 //alert(data);
-                if (data == "true") {
+                if (data.indexOf("true") > -1) {
                     alert("data updated successfully");
                     loadRecords(targetresource);
                 } 
@@ -271,7 +306,7 @@ function deleteRecords(getCmp, targetresource) {
         success: function(data) {
             // alert(data);
             console.log(data);
-            if (data == "true") {
+            if (data.indexOf("true") > -1) {
                 //$("#catId").val(getCmp);
                 alert("Data delete successfully");
                 loadRecords(targetresource);
