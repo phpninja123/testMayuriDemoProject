@@ -47,7 +47,8 @@
 
     <!-- Demo Scripts (remove if not needed) -->
    <script src="js/demo/demo.table.js"></script>
-   <script src="js/yellowPixelCommon.js"></script>
+   <!--<script src="js/yellowPixelCommon.js"></script>-->
+   <script src="js/common.js"></script>
    <script src="js/demo/demo.widget.js"></script>
    <script src="js/demo/demo.files.js"></script>
 
