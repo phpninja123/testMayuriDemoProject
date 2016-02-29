@@ -14,10 +14,10 @@ require_once('FooterInfo.php'); ?>
                 <div class="mws-panel grid_8">
                      
                     <div class="mws-panel-header">
-                        <span><i class="icon-table"></i> Footer Data Table
+                        <span><i class="icon-user"></i> About
                            <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec'
                          class="btn btn-success" style="float: right;">
-                         <i class="icon-plus-sign"></i>Add About Info
+                         <i class="icon-plus-sign"></i>Add About
                         </button>
                         </span>
                     </div>
@@ -25,10 +25,7 @@ require_once('FooterInfo.php'); ?>
                         <table class="mws-datatable mws-table" id="dataTableData1">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>About</th>
-                                    <th>Created On</th>
-                                    <th>Updated On</th>
                                     <th>Action</th> 
                                 </tr>
                             </thead>
@@ -39,6 +36,26 @@ require_once('FooterInfo.php'); ?>
                     </div>
                 </div>
 
+                <div class="mws-panel grid_8">
+                    <div class="mws-panel-header">
+                        <span><i class="icon-pencil-2"></i> WYSIWYG Editor</span>
+                    </div>
+                    <div class="mws-panel-body no-padding">
+                        <form class="mws-form" action="form_elements.html">
+                            <div class="mws-form-row">
+                                <label class="mws-form-label">WYSIWYG</label>
+                                <div class="mws-form-item">
+                                    <textarea id="cleditor" class="large"></textarea>
+                                </div>
+                            </div>
+                            <div class="mws-button-row">
+                                <input type="submit" value="Submit" class="btn btn-danger">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                
                 <!-- modal start-->
                 <div class="mws-panel grid_4" style = "display: none;">
                         <div class="mws-panel-content">                           
@@ -69,3 +86,4 @@ require_once('FooterInfo.php'); ?>
      
 
 <?php require_once('footer.php');?>
+<script src="js/yellowPixelCommon.js"></script>

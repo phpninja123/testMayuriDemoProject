@@ -1,8 +1,9 @@
-  <?php
+<?php
 $title = 'Home Management';
-$page = 'table';
-require_once('header.php'); 
-require_once('sidebar.php'); ?>
+$page  = 'table';
+require_once('header.php');
+require_once('sidebar.php');
+?>
 
  <!-- Main Container Start -->
         <div id="mws-container" class="clearfix">
@@ -13,7 +14,7 @@ require_once('sidebar.php'); ?>
                 <div class="mws-panel grid_8">
                      
                     <div class="mws-panel-header">
-                        <span><i class="icon-table"></i> Image Data Table
+                        <span><i class="icon-picassa"></i>Portfolio
                            <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec'
                          class="btn btn-success" style="float: right;">
                          <i class="icon-plus-sign"></i>Add New Image
@@ -24,12 +25,9 @@ require_once('sidebar.php'); ?>
                         <table class="mws-datatable mws-table" id="dataTableData1">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Image Name</th>
                                     <th>Image category</th>
+                                    <th>Image</th>
                                     <th>Image caption</th>
-                                    <th>Created On</th>
-                                    <th>Updated On</th>
                                     <th>Action</th> 
                                 </tr>
                             </thead>
@@ -44,7 +42,9 @@ require_once('sidebar.php'); ?>
                 <div class="mws-panel grid_4" style = "display: none;">
                         <div class="mws-panel-content">                           
                             <div id="mws-form-dialog">
-                                <form id="mws-validate" class="mws-form" action="form_elements.html">
+                                <form id="mws-validate" class="mws-form" action="upload.php" enctype="multipart/form-data" method="post" onsubmit="">
+                                   <input type="hidden" name='table' id="table" value='2'> 
+                                    <input type="hidden" name='id' id="id" value=''> 
                                     <div id="mws-validate-error" class="mws-form-message error" style="display:none;"></div>
                                     <div class="mws-form-inline">
                                         
@@ -52,25 +52,37 @@ require_once('sidebar.php'); ?>
                                          <div class="mws-form-row">
                                              <label class="mws-form-label" id='lblImgName'>Image Name</label>
                                             <div class="mws-form-item">
-                                                <input type="text" name="reqField" class="required" id="txtImgName" value='test'>
+                                                <input type="text" name="txtImgName" class="required" id="txtImgName" >
                                             </div>
                                         </div>
 
                                         <div class="mws-form-row">
                                             <label class="mws-form-label" id='lblImgCaption'>Image Caption</label>
                                             <div class="mws-form-item">
-                                                <input type="text" name="reqField" class="required" id="txtImgCaption" value='test'>
+                                                <input type="text" name="txtImgCaption" class="required" id="txtImgCaption" >
                                             </div>
                                         </div>
 
                                          <div class="mws-form-row">
                                             <label class="mws-form-label" id='lblImgCat'>Image Category</label>
                                             <div class="mws-form-item" id='txtImgCat'>
-                                                <select class="required" name="selectBox">
+                                                <select class="required" name="ddselectBox" id="ddselectBox">
                                                    <?php require_once("php/GetDropDown.php"); ?>
                                                 </select>
                                             </div>
                                         </div>
+
+                                         <div class="mws-form-row">
+                                            <label class="mws-form-label">File Input Validation</label>
+                                            <div class="mws-form-item">
+                                                <input type="file" name="fileToUpload" id="fileToUpload" class="required">
+                                                <label for="picture" class="error" generated="true" style="display:none"></label>
+                                            </div>
+                                            <div class="mws-form-item">
+                                                <img id="fileImg" src="" height="100" width= "100">
+                                            </div>
+                                        </div>
+
 
                                     </div>
                                     </div>
@@ -78,13 +90,10 @@ require_once('sidebar.php'); ?>
                             </div>
                         </div>
                 </div>
-                
             <!-- modal end-->
- 
-
             </div>
-
             <!-- Inner Container End -->
-     
-
-<?php require_once('footer.php');?>
+<?php
+require_once('footer1.php');
+?>
+<script type="text/javascript" src="js/yellowPixelCommon1.js"></script>

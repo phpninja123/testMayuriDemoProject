@@ -14,7 +14,7 @@ require_once('sidebar.php');
                 <div class="mws-panel grid_8">
                      
                     <div class="mws-panel-header">
-                        <span><i class="icon-table"></i> Category Data Table
+                        <span><i class="icon-camera"></i> Category
                            <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec'
                          class="btn btn-success" style="float: right;">
                          <i class="icon-plus-sign"></i>Add New Category
@@ -25,10 +25,7 @@ require_once('sidebar.php');
                         <table class="mws-datatable mws-table" id="dataTableData1">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Category Name</th>
-                                    <th>Created On</th>
-                                    <th>Updated On</th>
+                                    <th>Category</th>
                                     <th>Action</th> 
                                 </tr>
                             </thead>
@@ -41,7 +38,7 @@ require_once('sidebar.php');
                 <div class="mws-panel grid_4" style = "display: none;">
                         <div class="mws-panel-content">                           
                             <div id="mws-form-dialog">
-                                <form id="mws-validate" class="mws-form" action="form_elements.html">
+                                <form id="mws-validate" class="mws-form" action="">
                                     <div id="mws-validate-error" class="mws-form-message error" style="display:none;"></div>
                                     <div class="mws-form-inline">
                                         <div class="mws-form-row">
@@ -65,3 +62,4 @@ require_once('sidebar.php');
 <?php
 require_once('footer.php');
 ?>
+<script src="js/yellowPixelCommon.js"></script>

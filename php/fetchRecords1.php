@@ -4,22 +4,20 @@
 function WriteRecords($sql){
 	$result=prepareDB($sql);
 	if($result){
-		$_SESSION['success_message'] = 'Your record is created successfully !!!';
 		return 1;
 	}
 	else{
-		$_SESSION['error_message'] = 'Sorry, we cannot create this record right now, pls try later.';
-		return 0;	
+		return 0;
 	}
 }
 function updateRecords($sql){
 	$result=prepareDB($sql);
 	if($result){
-		$_SESSION['success_message'] = 'Your record is updated successfully !!!';
+		//$_SESSION['success_message'] = 'Your record is updated successfully !!!';
 		return "true";
 	}
 	else{
-		$_SESSION['error_message'] = 'Sorry, we cannot delete this record right now, pls try later.';
+		//$_SESSION['error_message'] = 'Sorry, we cannot delete this record right now, pls try later.';
 		return "false";
 	}
 }
@@ -60,7 +58,7 @@ function getDD(){
 	$sql="select NAME from category where DELETED= 0";
 	$result=prepareDB($sql);
 	while ($row = mysqli_fetch_array($result)){
-		echo "<option value = '$row[NAME]'>" . $row['NAME'] . "</option>";
+		echo "<option>" . $row['NAME'] . "</option>";
 	}
 }
 function prepareDB($sql){

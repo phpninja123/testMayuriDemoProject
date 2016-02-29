@@ -36,4 +36,4 @@ require_once('sidebar.php'); ?>
                 <!-- Panels End -->
             </div>
             <!-- Inner Container End -->
-<?php require_once("footer.php")?>                       
+<?php require_once("footer1.php")?>  

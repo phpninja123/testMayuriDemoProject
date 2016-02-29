@@ -50,7 +50,7 @@
         
             <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
             <div id="mws-logo-wrap">
-                <img src="images/mws-logo.png" alt="mws admin">
+                <img src="logo.png" alt="mws admin">
             </div>
         </div>
         
@@ -67,10 +67,9 @@
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
-                        Hello, John Doe
+                        Hello, Askara
                     </div>
                     <ul>
-                        <li><a href="#">Profile</a></li>
                         <li><a href="#">Change Password</a></li>
                         <li><a href="index.html">Logout</a></li>
                     </ul>

@@ -51,20 +51,8 @@
    <script src="js/demo/demo.table.js"></script>
    <script src="js/demo/demo.widget.js"></script>
    <script src="js/demo/demo.files.js"></script>
-   <script src="js/demo/demo.formelements.js"></script>
 
-    <script src="custom-plugins/picklist/picklist.min.js"></script>
-    <script src="plugins/autosize/jquery.autosize.min.js"></script>
-    <script src="plugins/select2/select2.min.js"></script>
-    <script src="plugins/ibutton/jquery.ibutton.min.js"></script>
-   
-    <script src="plugins/cleditor/jquery.cleditor.min.js"></script>
-    <script src="plugins/cleditor/jquery.cleditor.table.min.js"></script>
-    <script src="plugins/cleditor/jquery.cleditor.xhtml.min.js"></script>
-    <script src="plugins/cleditor/jquery.cleditor.icon.min.js"></script>
-
-
-   <script type="text/javascript">/*
+   <script type="text/javascript">
         $(document).ready(function()
         {
             <?php if (!empty($_SESSION['success_message'])){
@@ -76,10 +64,7 @@
                 echo 'alert("'.$_SESSION['error_message'].'")';
                 unset($_SESSION['error_message']);
              } ?>    
-        })*/
-        
-
-
+        })
    </script>
 
 </body>

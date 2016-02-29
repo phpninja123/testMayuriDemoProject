@@ -16,6 +16,7 @@ $title = 'Slider';
 $page = 'slider';
 require_once('header.php'); 
 require_once('sidebar.php');
+
 ?>
 
  <!-- Main Container Start -->
@@ -43,8 +44,6 @@ require_once('sidebar.php');
                                     <th>Image Path</th>
                                     <th>Head Caption</th>
                                     <th>Sub caption</th>
-                                    <th>Created On</th>
-                                    <th>Updated On</th>
                                     <th>Action</th> 
                                 </tr>
                             </thead>
@@ -56,10 +55,60 @@ require_once('sidebar.php');
                     </div>
                 </div>
             </div>
-            <?php require_once('testDialog.php'); ?>
+             <!-- modal start-->
+                <div class="mws-panel grid_4" style = "display: none;">
+                        <div class="mws-panel-content">                           
+                            <div id="mws-form-dialog">
+                                <form id="mws-validate" class="mws-form" operation="" action="upload.php" enctype="multipart/form-data" method="post">
+                                    <input type="hidden" name='table' id="table" value='4'> 
+                                    <input type="hidden" name='id' id="id" value=''> 
+                                    <div id="mws-validate-error" class="mws-form-message error" style="display:none;"></div>
+                                    <div class="mws-form-inline">
+
+                                         <div class="mws-form-row">
+                                             <label class="mws-form-label" id='lblImgName'>Image Name</label>
+                                            <div class="mws-form-item">
+                                                <input type="text" name="txtImgName" class="required" id="txtImgName" name = "txtImgName" >
+                                            </div>
+                                        </div>
+
+                                        <div class="mws-form-row">
+                                            <label class="mws-form-label" id='lblImgCaption'>Head Caption</label>
+                                            <div class="mws-form-item">
+                                                <input type="text" name="txtHeadCaption" class="required" id="txtHeadCaption" >
+                                            </div>
+                                        </div>
+
+                                         <div class="mws-form-row">
+                                            <label class="mws-form-label" id='lblImgCat'>Sub Caption</label>
+                                            <div class="mws-form-item">
+                                               <input type="text" name="txtSubCaption" class="required" id="txtSubCaption">
+                                            </div>
+                                        </div>
+
+                                         <div class="mws-form-row">
+                                            <label class="mws-form-label">File Input Validation</label>
+                                            <div class="mws-form-item">
+                                                <input type="file" name="fileToUpload" id="fileToUpload" class="required">
+                                                <label for="picture" class="error" generated="true" style="display:none"></label>
+                                            </div>
+                                            <div class="mws-form-item">
+                                                <img id="fileImg" src="" height="100" width= "100">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+                
+            <!-- modal end-->
+
 
             <!-- Inner Container End -->
      
 
-<?php require_once('footer.php');?>
-<script type="text/javascript" src="js/common.js"></script>
+<?php require_once('footer1.php');?>
+<script type="text/javascript" src="js/yellowPixelCommon1.js"></script>
