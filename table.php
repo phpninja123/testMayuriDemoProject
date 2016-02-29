@@ -17,7 +17,7 @@ require_once('sidebar.php');
                         <span><i class="icon-picassa"></i>Portfolio
                            <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec'
                          class="btn btn-success" style="float: right;">
-                         <i class="icon-plus-sign"></i>Add New Image
+                         <i class="icon-plus-sign"></i>Add New Project
                         </button>
                         </span>
                     </div>
@@ -25,7 +25,7 @@ require_once('sidebar.php');
                         <table class="mws-datatable mws-table" id="dataTableData1">
                             <thead>
                                 <tr>
-                                    <th>Image category</th>
+                                    <th>Category</th>
                                     <th>Image</th>
                                     <th>Image caption</th>
                                     <th>Action</th> 

@@ -24,7 +24,7 @@ require_once('sidebar.php'); ?>
                         <table class="mws-datatable mws-table" id="dataTableData1">
                             <thead>
                                 <tr>
-                                    <th>Image Name</th>
+                                    <th>Image</th>
                                     <th>Head Caption</th>
                                     <th>Sub caption</th>
                                     <th>Action</th> 
