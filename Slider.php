@@ -109,7 +109,7 @@ require_once('sidebar.php'); ?>
                                         </div>
 
                                          <div class="mws-form-row">
-                                            <label class="mws-form-label">File Input Validation</label>
+                                            <label class="mws-form-label">Choose File</label>
                                             <div class="mws-form-item">
                                                 <input type="file" name="fileToUpload" id="fileToUpload" class="required">
                                                 <label for="picture" class="error" generated="true" style="display:none"></label>

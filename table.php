@@ -64,7 +64,7 @@ require_once('sidebar.php');
                                         </div>
 
                                          <div class="mws-form-row">
-                                            <label class="mws-form-label" id='lblImgCat'>Image Category</label>
+                                            <label class="mws-form-label" id='lblImgCat'>Category</label>
                                             <div class="mws-form-item" id='txtImgCat'>
                                                 <select class="required" name="ddselectBox" id="ddselectBox">
                                                    <?php require_once("php/GetDropDown.php"); ?>
@@ -73,7 +73,7 @@ require_once('sidebar.php');
                                         </div>
 
                                          <div class="mws-form-row">
-                                            <label class="mws-form-label">File Input Validation</label>
+                                            <label class="mws-form-label">Choose File</label>
                                             <div class="mws-form-item">
                                                 <input type="file" name="fileToUpload" id="fileToUpload" class="required">
                                                 <label for="picture" class="error" generated="true" style="display:none"></label>
