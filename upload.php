@@ -12,7 +12,7 @@ if(isset($_POST["submit"]))
         //echo('ID passed: '.$_REQUEST['id']);
         //echo .$_REQUEST['table'];
         $name = array();
-       // echo($_REQUEST['target']); 
+       echo($_REQUEST['target']); die();
         switch($_REQUEST['target'])
         {
             case 2:
