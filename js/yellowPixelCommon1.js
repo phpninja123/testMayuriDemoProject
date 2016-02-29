@@ -10,6 +10,10 @@ function pageLoad(){
     //enableModal(targetresource);
     
     $(document).on("click", "#mws-form-dialog-mdl-btn", function(event) {
+        $(".ui-icon").remove();
+        $(".ui-dialog-titlebar-close").remove();
+        //('ui-icon ui-icon-closethick');
+        //$(".ui-dialog-titlebar-close").removeClass('ui-dialog-titlebar-close-ui-corner-all');
         validator = $("#form#mws-validate").validate();
         var temp = $(this).attr('recid');
         if (temp == 'newRec') {
