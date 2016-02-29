@@ -6,7 +6,7 @@ $(document).ready(function() {
 function pageLoad(){
     //get identifier for table
     //var targetresource = $('tbody').attr('targetResource');
-    alert(targetresource);
+    //alert(targetresource);
     //alert('loading records'+targetresource);
     loadRecords(targetresource);
     $(document).on("click", "#mws-form-dialog-mdl-btn", function(event) {
