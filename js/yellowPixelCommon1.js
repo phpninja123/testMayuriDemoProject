@@ -12,6 +12,13 @@ function pageLoad(){
     $(document).on("click", "#mws-form-dialog-mdl-btn", function(event) {
         $(".ui-icon").remove();
         $(".ui-dialog-titlebar-close").remove();
+        var titleDisplay = '';
+       if(targetresource == 2){
+            titleDisplay = ' Project';
+       }
+       else if(targetresource == 4){
+            titleDisplay = ' Slider Image';
+       }
         //('ui-icon ui-icon-closethick');
         //$(".ui-dialog-titlebar-close").removeClass('ui-dialog-titlebar-close-ui-corner-all');
         validator = $("#form#mws-validate").validate();
@@ -21,7 +28,7 @@ function pageLoad(){
             //alert(temp);
             $("#mws-form-dialog").dialog("option", {
                 modal: true,
-                title: "Add Category",
+                title: "Add"+ titleDisplay,
                 buttons: [{
                     text: "Submit",
                     name: "submit",
@@ -56,7 +63,7 @@ function pageLoad(){
         {
             $("#mws-form-dialog").dialog("option", {
                 modal: true,
-                title: "Edit Category",
+                title: "Edit " + titleDisplay,
                 buttons: [{
                     text: "Update",
                     id: "btnUpdate",

@@ -1,22 +1,32 @@
- var targetresource = $('tbody').attr('targetResource');
+var targetresource = $('tbody').attr('targetResource');
 $(document).ready(function() {
     pageLoad();
 
 });
 function pageLoad(){
     //get identifier for table
-    var targetresource = $('tbody').attr('targetResource');
+    //var targetresource = $('tbody').attr('targetResource');
+    alert(targetresource);
     //alert('loading records'+targetresource);
     loadRecords(targetresource);
     $(document).on("click", "#mws-form-dialog-mdl-btn", function(event) {
+        $(".ui-icon").remove();
+        $(".ui-dialog-titlebar-close").remove();
        validator = $("#form#mws-validate").validate();
+       var titleDisplay = '';
+       if(targetresource == 1){
+            titleDisplay = ' Category';
+       }
+       else if(targetresource == 3){
+            titleDisplay = ' About';
+       }
        //check if new record else get record id
         var temp = $(this).attr('recid');
         if (temp == 'newRec') {
             // $("#catId").val("");
             $("#mws-form-dialog").dialog("option", {
                 modal: true,
-                title: "Add Category",
+                title: "Add"+titleDisplay,
                 buttons: [{
                     text: "Submit",
                     name: "submit",
@@ -46,7 +56,7 @@ function pageLoad(){
         } else {
             $("#mws-form-dialog").dialog("option", {
                 modal: true,
-                title: "Edit Category",
+                title: "Edit"+titleDisplay,
                 buttons: [{
                     text: "Update",
                     id: "btnUpdate",
