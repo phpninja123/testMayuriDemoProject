@@ -83,7 +83,7 @@ function pageLoad(){
 
 //delete records
     $(document).on("click", "#btnDelete", function() {
-        var result = confirm("Are u sure want to delete this category");
+        var result = confirm("Are u sure want to delete this record?");
         if (!result) {
             return false;
         } else {
@@ -91,7 +91,7 @@ function pageLoad(){
             deleteRecords(temp, targetresource);
             validator = $("#form#mws-validate").validate();
             $("#mws-validate")[0].reset();
-                        validator.resetForm();
+            validator.resetForm();
         }
     });
 

@@ -42,6 +42,7 @@ function pageLoad(){
                             var isValid = $(this).find('form#mws-validate').valid();
                             if (isValid) {
                                 $("#mws-validate").submit();
+                                loadRecords();
                             }
 
                         }
@@ -98,7 +99,7 @@ function pageLoad(){
 
 //delete records
     $(document).on("click", "#btnDelete", function() {
-        var result = confirm("Are u sure want to delete this category");
+        var result = confirm("Are u sure want to delete this record?");
         if (!result) {
             return false;
         } else {
@@ -113,6 +114,7 @@ function pageLoad(){
 
 
 function loadRecords(targetresource) {
+   // alert(targetresource);
     $.ajax({
         url: "php/DAO.php",
         method: "post",
@@ -122,7 +124,7 @@ function loadRecords(targetresource) {
         },
         datatype: JSON,
         success: function(data) {
-            //console.log(data);
+            console.log(data);
             if (data) {
                 var displayData = JSON.parse(data);
                 console.log(displayData);
@@ -306,11 +308,11 @@ function deleteRecords(getCmp, targetresource) {
             target: targetresource
         },
         success: function(data) {
-            // alert(data);
-            console.log(data);
+            //alert(data);
+            //console.log(data);
             if (data.indexOf("true") > -1) {
                 //$("#catId").val(getCmp);
-                alert("Data delete successfully");
+                alert("Data deleted successfully");
                 loadRecords(targetresource);
             } else {
                 alert("Error in data deletion");
