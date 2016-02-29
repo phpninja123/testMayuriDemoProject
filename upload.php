@@ -32,7 +32,7 @@ if(isset($_POST["submit"]))
                     $_REQUEST['operation'] = "new";
                 }
                 
-                //print_r($name); 
+                print_r($name);  die();
                 break;
             case 4:
                 $name[0]= $_REQUEST['txtImgName'];
@@ -40,7 +40,7 @@ if(isset($_POST["submit"]))
                 $name[2] = $_REQUEST['txtSubCaption'];
                 $name[3] = ( $uniqueFileName != 1 ) ? 'uploads/'.$uniqueFileName : '';
                 $name[4]= $_REQUEST['id'];
-                //print_r($name); 
+                print_r($name); die();
                 
                 $_REQUEST['name'] = $name;
                 if(!empty($_REQUEST['id']))
