@@ -50,8 +50,7 @@ if(isset($_POST["submit"]))
                 else{
                      $_REQUEST['operation'] = "new";
                 }
-                echo ($_REQUEST['operation']);
-                //print_r($name); 
+                //echo ($_REQUEST['operation']);
                 break;
         }
         
