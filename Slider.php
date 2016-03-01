@@ -1,8 +1,9 @@
   <?php
 $title = 'Slider Management';
-$page = 'slider';
-require_once('header.php'); 
-require_once('sidebar.php'); ?>
+$page  = 'slider';
+require_once('header.php');
+require_once('sidebar.php');
+?>
 
  <!-- Main Container Start -->
         <div id="mws-container" class="clearfix">
@@ -87,17 +88,11 @@ require_once('sidebar.php'); ?>
                             </div>
                         </div>
                 </div>
-                
             <!-- modal end-->
-
-                
-            <!-- modal end-->
- 
-
             </div>
 
             <!-- Inner Container End -->
-     
-
-<?php require_once('footer1.php');?>
+<?php
+require_once('portfolio_slider.php');
+?>
 <script src="js/portfolio_slider.js"></script>
