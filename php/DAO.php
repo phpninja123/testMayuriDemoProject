@@ -3,10 +3,6 @@ require_once("FetchRecords.php");
 
 function callDB(){
 	$option=$_REQUEST['operation'];
-	//echo('option choosed'.$option);
-	//$option="update";
-	//$tableName=$_GET['table'];
-	//$tableName='category';
 	$table = $_REQUEST['target'];
 	$selectSQL;
 	$loadSql;
