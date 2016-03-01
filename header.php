@@ -50,7 +50,7 @@
         
             <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
             <div id="mws-logo-wrap">
-                <img src="logo.png" alt="mws admin">
+                <img src="images/logo.png" alt="mws admin">
             </div>
         </div>
         

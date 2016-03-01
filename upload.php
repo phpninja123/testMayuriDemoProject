@@ -1,9 +1,5 @@
 <?php
 // Check if image file is a actual image or fake image
-$_POST["submit"]='submit';
-//echo $_POST["submit"];
-if(isset($_POST["submit"])) 
-{
      $_REQUEST['target'] = $_REQUEST['table'];
      $uniqueFileName = uploadFile();
      if( $uniqueFileName || !empty($_POST['id']))
@@ -12,7 +8,7 @@ if(isset($_POST["submit"]))
         //echo('ID passed: '.$_REQUEST['id']);
         //echo .$_REQUEST['table'];
         $name = array();
-       echo($_REQUEST['target']); die();
+       //echo($_REQUEST['target']); die();
         switch($_REQUEST['target'])
         {
             case 2:
@@ -32,7 +28,7 @@ if(isset($_POST["submit"]))
                     $_REQUEST['operation'] = "new";
                 }
                 
-                print_r($name);  die();
+                print_r($name);
                 break;
             case 4:
                 $name[0]= $_REQUEST['txtImgName'];
@@ -40,7 +36,7 @@ if(isset($_POST["submit"]))
                 $name[2] = $_REQUEST['txtSubCaption'];
                 $name[3] = ( $uniqueFileName != 1 ) ? 'uploads/'.$uniqueFileName : '';
                 $name[4]= $_REQUEST['id'];
-                print_r($name); die();
+                print_r($name);
                 
                 $_REQUEST['name'] = $name;
                 if(!empty($_REQUEST['id']))
@@ -64,11 +60,7 @@ if(isset($_POST["submit"]))
         echo "<script>window.location = 'table.php';</script>"; 
     }
         
-}
-else
-{
-    echo 'no submit';
-}
+
 
 function uploadFile()
 {

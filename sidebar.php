@@ -6,43 +6,22 @@
         
         <!-- Sidebar Wrapper -->
         <div id="mws-sidebar">
-        
-            <!-- Hidden Nav Collapse Button -->
-            <div id="mws-nav-collapse">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <script type="text/javascript">
-            </script>
-        	 
+
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
-                    <li <?php if($page == 'table'){ ?> class="active"<?php }?> >
-                        <a href="table.php"><i class="icon-picassa"></i>Portfolio</a>
+                    <li <?php if($page == 'portfolio'){ ?> class="active"<?php }?> >
+                        <a href="portfolio.php"><i class="icon-picassa"></i>Portfolio</a>
                     </li>
-                    <li  <?php  if($page == 'dashboard'){ ?> class="active"<?php }?> ><a href="dashboard.php"><i class="icon-camera" ></i>Category</a></li>
-                    <li  <?php  if($page == 'slider'){ ?> class="active"<?php }?> ><a href="Slider.php"><i class="icon-pictures" ></i>Slider</a></li>
-                    <li  <?php  if($page == 'footer'){ ?> class="active"<?php }?> ><a href="FooterInfo.php"><i class="icon-user" ></i>About</a></li>
-                    <!--<li><a href="charts.html"><i class="icon-graph"></i> Charts</a></li>
-                    <li><a href="calendar.html"><i class="icon-calendar"></i> Calendar</a></li>-->
-                   <!-- <li <?php  /*if($page == 'file'){ */?> class="active"<?php /*}*/?>><a href="files.php"><i class="icon-folder-closed"></i> File Manager</a></li>
-                   
-                    <li id="4">
-                        <a href="#"><i class="icon-list"></i> Forms</a>
-                        <ul>
-                            <li><a href="form_layouts.html">Layouts</a></li>
-                            <li><a href="form_elements.html">Elements</a></li>
-                            <li><a href="form_wizard.html">Wizard</a></li>
-                        </ul>
+                    <li  <?php  if($page == 'category'){ ?> class="active"<?php }?> >
+                        <a href="category.php"><i class="icon-camera" ></i>Category</a>
                     </li>
-                    <li id="4">
-                        <a href="icons.html">
-                            <i class="icon-pacman"></i> 
-                            Icons <span class="mws-nav-tooltip">2000+</span>
-                        </a>
-                    </li>-->
+                    <li  <?php  if($page == 'slider'){ ?> class="active"<?php }?> >
+                        <a href="slider.php"><i class="icon-pictures" ></i>Slider</a>
+                    </li>
+                    <li  <?php  if($page == 'about'){ ?> class="active"<?php }?> >
+                        <a href="about.php"><i class="icon-user" ></i>About</a>
+                    </li>
                 </ul>
             </div>         
         </div>

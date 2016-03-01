@@ -7,7 +7,7 @@ function callDB(){
 	//$option="update";
 	//$tableName=$_GET['table'];
 	//$tableName='category';
-	$table=$_REQUEST['target'];
+	$table = $_REQUEST['target'];
 	$selectSQL;
 	$loadSql;
 	$newSql;
@@ -29,11 +29,6 @@ function callDB(){
 					$param = $_REQUEST['name'];
 					$newSql="insert into project_info (IMAGE, IMAGE_CATEGORY, CAPTION, IMAGE_PATH) VALUES ('$param[0]',(select ID from category where NAME= '$param[1]' and DELETED = 0),'$param[2]', '$param[3]')";
 				}
-				/*if($option=='update' || $option=='new'){
-				$name = implode(' ',$_REQUEST['name']);
-				$param= explode(' ', $name);				
-				//$newSql="insert into project_info (IMAGE, IMAGE_CATEGORY, CAPTION, IMAGE_PATH) VALUES ('$param[0]',(select ID from category where NAME= '$param[1]' and DELETED = 0),'$param[2]', '$param[3]')";
-				}*/
 				if($option=='update')
 				{
 					$param = $_REQUEST['name'];
@@ -76,7 +71,6 @@ function callDB(){
 			}
 		break;
 	}
-	//echo($table);
 	switch($option){
 		case "read":
 			//callread();
@@ -91,10 +85,10 @@ function callDB(){
 			updateRecords($updateSql);
 			if($table == 2)
 			{
-				echo "<script>window.location = 'table.php';</script>";	
+				echo "<script>window.location = 'portfolio.php';</script>";	
 			}
 			else if($table == 4){
-				echo "<script>window.location = 'Slider.php';</script>";
+				echo "<script>window.location = 'slider.php';</script>";
 			}
 			break;
 		case "delete":
@@ -106,15 +100,14 @@ function callDB(){
 			WriteRecords($newSql);
 			if($table == 2)
 			{
-				echo "<script>window.location = 'table.php';</script>";	
+				echo "<script>window.location = 'portfolio.php';</script>";	
 			}
 			else if($table == 4){
-				echo "<script>window.location = 'Slider.php';</script>";
+				echo "<script>window.location = 'slider.php';</script>";
 			}
 			break;
 	}
 
 }
 callDB();
-//callImageUpload();
 ?>

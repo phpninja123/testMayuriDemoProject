@@ -1,5 +1,5 @@
   <?php
-$title = 'Slider';
+$title = 'Slider Management';
 $page = 'slider';
 require_once('header.php'); 
 require_once('sidebar.php'); ?>
@@ -38,45 +38,7 @@ require_once('sidebar.php'); ?>
                     </div>
                 </div>
 
-                <!-- modal start-->
-                <!--
-                <div class="mws-panel grid_4" style = "display: none;">
-                        <div class="mws-panel-content">                           
-                            <div id="mws-form-dialog">
-                                <form id="mws-validate" class="mws-form" action="form_elements.html">
-                                    <input type="hidden" name='table' id="table" value='4'> 
-                                    <input type="hidden" name='id' id="id" value=''> 
-                                    <div id="mws-validate-error" class="mws-form-message error" style="display:none;"></div>
-                                    <div class="mws-form-inline">
-                                        
-
-                                         <div class="mws-form-row">
-                                             <label class="mws-form-label" id='lblImgName'>Image Name</label>
-                                            <div class="mws-form-item">
-                                                <input type="text" name="reqField" class="required" id="txtImgName" >
-                                            </div>
-                                        </div>
-
-                                        <div class="mws-form-row">
-                                            <label class="mws-form-label" id='lblImgCaption'>Head Caption</label>
-                                            <div class="mws-form-item">
-                                                <input type="text" name="reqField" class="required" id="txtHeadCaption" >
-                                            </div>
-                                        </div>
-
-                                         <div class="mws-form-row">
-                                            <label class="mws-form-label" id='lblImgCat'>Sub Caption</label>
-                                            <div class="mws-form-item">
-                                               <input type="text" name="reqField" class="required" id="txtSubCaption">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                </div>-->
+               
                 <!-- modal start-->
                 <div class="mws-panel grid_4" style = "display: none;">
                         <div class="mws-panel-content">                           
@@ -138,4 +100,4 @@ require_once('sidebar.php'); ?>
      
 
 <?php require_once('footer1.php');?>
-<script src="js/yellowPixelCommon1.js"></script>
+<script src="js/portfolio_slider.js"></script>
