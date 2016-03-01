@@ -16,7 +16,7 @@
                 //$temp = $_REQUEST["#txtImgCat option:selected"];
                 $name[1] = $_REQUEST["ddselectBox"];
                 $name[2] = $_REQUEST["txtImgCaption"];
-                $name[3] = ( $uniqueFileName != 1 ) ? 'ProjectImage/'.$uniqueFileName : '';
+                $name[3] = ( $uniqueFileName != 1 ) ? $uniqueFileName : '';
                 $name[4]= $_REQUEST['id'];
                 $_REQUEST['name'] = $name;
                  if(!empty($_REQUEST['id']))
@@ -28,15 +28,15 @@
                     $_REQUEST['operation'] = "new";
                 }
                 
-                print_r($name);
+                //print_r($name);
                 break;
             case 4:
                 $name[0]= $_REQUEST['txtImgName'];
                 $name[1] = $_REQUEST['txtHeadCaption'];
                 $name[2] = $_REQUEST['txtSubCaption'];
-                $name[3] = ( $uniqueFileName != 1 ) ? 'uploads/'.$uniqueFileName : '';
+                $name[3] = ( $uniqueFileName != 1 ) ? $uniqueFileName : '';
                 $name[4]= $_REQUEST['id'];
-                print_r($name);
+                //print_r($name);
                 
                 $_REQUEST['name'] = $name;
                 if(!empty($_REQUEST['id']))
