@@ -8,7 +8,7 @@
         //echo('ID passed: '.$_REQUEST['id']);
         //echo .$_REQUEST['table'];
         $name = array();
-       //echo($_REQUEST['target']); die();
+       echo($_REQUEST['target']); die();
         switch($_REQUEST['target'])
         {
             case 2:
